@@ -1,9 +1,30 @@
+/* Disclaimer:
+Most of my code was lost before the last day of development,
+So the vast majority of this was coded in 4 hours straight.
+I did not get around to adding a GUI, but if you look at my previous projects,
+you will see that I am very capable of making GUI.
+
+I am fairly happy with the results I got in the 4 hours, but there are a few issues:
+1. My generations don't evolve, they stay around the same values.
+   I think the sorting might be the issue.
+2. As I did everything pretty fast, I made a bit too much spaghetti code, lacking in
+   structure and comments, and made in only one github commit.
+3. As mentioned earlier, there is no GUI.
+
+
+*/
+
+
+
+
 //Imports a library used later for sorting
 import java.util.Collections;
 
 ArrayList<Item> allItems = new ArrayList<Item>();
 ArrayList<ArrayList<BackpackDNA>> Generations = new ArrayList<ArrayList<BackpackDNA>>();
 
+
+//Here I define preferences for "breeding"
 int genSize = 100;
 int mutationPercentage = 50;
 float decimatePercentage = 0.98;
@@ -27,7 +48,6 @@ void iterateGen(ArrayList<BackpackDNA> previousGen){
   //Creates a new gen based on the previous gen
   printGenStats(previousGen);
 
-  
   //Sorts the previous generation, and removes all but the strongest percentile
   Collections.sort(previousGen);
   decimate(previousGen, decimatePercentage);
